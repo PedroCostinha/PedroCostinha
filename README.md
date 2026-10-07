@@ -1,4 +1,4 @@
-# 👋 Olá! Eu sou o Pedro Costinha
+# 👋 Olá! Eu sou o Pedro Costa
 
 Desenvolvedor de Software com experiência em sistemas empresariais, atuando tanto em aplicações desktop quanto em desenvolvimento web.
 
