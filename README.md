@@ -4,6 +4,17 @@ Desenvolvedor de Software com experiência em sistemas empresariais, atuando tan
 
 Atualmente trabalho com manutenção, evolução e implementação de novas funcionalidades em sistemas reais de produção.
 
+<!-- CODE QUEST:START -->
+## CODE QUEST
+
+Meu calendário real de contribuições em uma fase original de plataforma 2D.
+
+[![CODE QUEST — Pedro Costinha: animação do calendário real de contribuições, com corrida, saltos e coleta de moedas.](assets/code-quest/code-quest.svg)](assets/code-quest/code-quest.svg)
+
+Cada quadrado representa um dia; as moedas são marcos visuais de atividade.
+[Como funciona e como é atualizado](docs/CODE_QUEST.md).
+<!-- CODE QUEST:END -->
+
 ## 💻 Tecnologias
 
 ### Desktop e Banco de Dados
