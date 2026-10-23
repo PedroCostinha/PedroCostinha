@@ -1,7 +1,9 @@
 # Validação — CODE QUEST V2
 
-Revisão local em **23/10/2026**, exclusivamente em `PedroCostinha/PedroCostinha`,
-branch `feat/code-quest-v2`. Nenhum commit, push, PR ou merge realizado.
+Registro da revisão local em **23/10/2026**, exclusivamente em
+`PedroCostinha/PedroCostinha`, branch `feat/code-quest-v2`. As seções iniciais
+documentam a implementação anterior à publicação; a nova validação após integrar
+a `main` está registrada ao final.
 
 ## Referência e preservação
 
@@ -125,3 +127,44 @@ ao SVG integral. O calendário final é de 22/10, não uma consulta atualizada a
 Este registro substitui o relatório inicial que ainda dizia que a publicação da
 V1 estava impedida. A V1 já foi publicada pelo usuário; esta revisão não alega
 ter validado sua renderização remota.
+
+## Integração e revisão para publicação — 23/10/2026
+
+- Remoto confirmado: `https://github.com/PedroCostinha/PedroCostinha.git`.
+  Identidade Git existente: `PedroCostinha`, com endereço privado `noreply`.
+- Commit de preservação `6dfc542` inclui os 17 arquivos esperados da V2 e do
+  redesign, incluindo os cinco SVGs novos. Staging revisado, sem temporários,
+  credenciais detectadas ou ferramentas locais de captura.
+- Backup local mantido em `backup/code-quest-v2-before-main-20261023`.
+- Após novo fetch, a base estava quatro commits atrás de `origin/main`
+  (`f5888c9`). Integração por merge, concluída em `3b37d5d`, preservando os dois
+  históricos. Conflitos limitados a calendário e SVG gerado: usado o calendário
+  real remoto e regeneradas as duas versões pelo renderizador V2.
+- Snapshot integrado: `github-graphql`, **370 dias, 53 semanas e 267
+  contribuições**, de **19/10/2025 a 23/10/2026**. Sem dados fabricados.
+- README, quatro SVGs do perfil, scripts, testes e workflow comparados ao
+  commit de preservação: conteúdo integralmente mantido durante a integração.
+- **32 testes aprovados novamente**; `--check` aprovado para os dois SVGs.
+  SVG animado: **219.931 bytes**. Reprodução do calendário retornou `Unchanged`.
+- Nova captura do PNG de apresentação em 18,3 s com o calendário integrado.
+- Chrome: **12 combinações** de 360/768/1200 px, claro/escuro e movimento
+  normal/reduzido; três imagens carregadas, fontes corretas e sem overflow.
+- Quatro SVGs do perfil com textos dentro dos limites. **20 amostras** da
+  digitação verificaram início parcial, pausa completa, apagamento parcial e
+  texto vazio para cada uma das cinco frases. Cursor piscando e reinício
+  confirmados; capturas distintas comprovam animação dentro de imagem externa.
+- Jogo: 370 células reais, 106 animações CSS ativas no modo normal e zero no
+  modo reduzido direto; alternativa estática selecionada nas três larguras.
+  Entrada, corrida, salto, coleta, chegada, vitória e reinício capturados.
+- Capturas móveis e desktop inspecionadas em ambos os temas. O calendário anual
+  mantém rótulos pequenos em 360 px; o link da imagem abre o SVG completo e as
+  informações profissionais permanecem disponíveis em texto no README.
+- Link público do CodeDragon confirmado. SHAs das duas Actions conferidos
+  novamente contra suas tags oficiais. Gatilhos, horário, GraphQL, permissões
+  e publicação condicionada a diff mantidos.
+- Evidências locais permanecem em `.git/readme-redesign-review/` e
+  `.git/code-quest-v2-review/`, sem inclusão no repositório.
+
+Esta seção confirma a validação local após integração. O resultado do PR,
+checks, merge, execução de atualização e renderização remota deve ser consultado
+no PR e nos runs de Actions da publicação; não é presumido por estes testes.
