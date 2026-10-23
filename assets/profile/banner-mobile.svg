@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="310" viewBox="0 0 640 310" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">PEDRO COSTA — Software Developer</title>
+  <desc id="desc">Sistemas empresariais, dados e integrações. Versão compacta do cabeçalho preto e vermelho.</desc>
+  <rect x=".5" y=".5" width="639" height="309" rx="12" fill="#0D1117" stroke="#30363D"/>
+  <path d="M.5 52V13A12.5 12.5 0 0 1 13 .5H120" stroke="#D94A4A" stroke-width="2"/>
+  <text x="36" y="52" fill="#B8C1CC" font-family="Consolas, 'Liberation Mono', monospace" font-size="17" letter-spacing="2">PEDROCOSTINHA <tspan fill="#D94A4A">/</tspan> DEV</text>
+  <path d="M534 35V46H554V57H574" stroke="#D94A4A" stroke-width="2"/>
+  <rect x="529" y="30" width="10" height="10" rx="2" fill="#0D1117" stroke="#D94A4A" stroke-width="2"/>
+  <rect x="569" y="52" width="10" height="10" rx="2" fill="#0D1117" stroke="#D94A4A" stroke-width="2"/>
+  <text x="32" y="157" fill="#E6EDF3" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="66" font-weight="700" letter-spacing="-2.5">PEDRO COSTA<tspan fill="#D94A4A">.</tspan></text>
+  <text x="36" y="205" fill="#E6EDF3" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="30">Software Developer</text>
+  <path d="M36 252H62" stroke="#D94A4A" stroke-width="2"/>
+  <text x="76" y="258" fill="#B8C1CC" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="24">Sistemas empresariais, dados e integrações.</text>
+</svg>

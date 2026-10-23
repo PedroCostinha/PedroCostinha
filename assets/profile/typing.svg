@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="56" viewBox="0 0 440 56" role="img" aria-labelledby="title desc">
+  <title id="title">Foco técnico de Pedro Costa</title>
+  <desc id="desc">Digitação e apagamento em ciclo: Delphi / Object Pascal; Sistemas empresariais; Firebird • PostgreSQL • SQL; React • Node.js • APIs REST; Integrações e manutenção de legados. Todas as tecnologias também estão disponíveis em texto no README.</desc>
+  <!-- Five 5-second slots: type 1.8 s, hold 1.3 s, erase .9 s, rest 1 s.
+       Each line's character count and end width match its textLength.
+       No scripts, remote fonts, images or foreignObject. -->
+  <style>
+    .still { display: none; }
+    .line { animation: slot 25s step-end var(--delay) infinite; }
+    .reveal { animation: reveal 25s steps(var(--chars), end) var(--delay) infinite; }
+    .cursor { animation: travel 25s steps(var(--chars), end) var(--delay) infinite; }
+    .blink { animation: blink 1s step-end infinite; }
+    @keyframes slot { 0%, 19.999% { opacity: 1; } 20%, 100% { opacity: 0; } }
+    @keyframes reveal { 0% { width: 0; } 7.2%, 12.4% { width: var(--end); } 16%, 100% { width: 0; } }
+    @keyframes travel { 0% { transform: translateX(0); } 7.2%, 12.4% { transform: translateX(var(--end)); } 16%, 100% { transform: translateX(0); } }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .line { display: none; animation: none; }
+      .reveal, .cursor, .blink { animation: none; }
+      .still { display: inline; }
+    }
+  </style>
+  <rect x=".5" y=".5" width="439" height="55" rx="6" fill="#161B22" stroke="#30363D"/>
+  <g font-family="Consolas, 'Liberation Mono', monospace" font-size="17" fill="#E6EDF3">
+    <text x="12" y="35" fill="#E05252">&gt;</text>
+    <text class="still" x="28" y="35">Desktop • Dados • Web</text>
+    <g class="line" opacity="0" style="--chars:22;--end:224.4px;--delay:0s">
+      <defs><clipPath id="clip-0" clipPathUnits="userSpaceOnUse"><rect class="reveal" x="28" y="12" width="0" height="32"/></clipPath></defs>
+      <text x="28" y="35" textLength="224.4" lengthAdjust="spacingAndGlyphs" clip-path="url(#clip-0)">Delphi / Object Pascal</text>
+      <g class="cursor"><rect class="blink" x="29" y="19" width="1.5" height="20" fill="#E05252"/></g>
+    </g>
+    <g class="line" opacity="0" style="--chars:21;--end:214.2px;--delay:5s">
+      <defs><clipPath id="clip-1" clipPathUnits="userSpaceOnUse"><rect class="reveal" x="28" y="12" width="0" height="32"/></clipPath></defs>
+      <text x="28" y="35" textLength="214.2" lengthAdjust="spacingAndGlyphs" clip-path="url(#clip-1)">Sistemas empresariais</text>
+      <g class="cursor"><rect class="blink" x="29" y="19" width="1.5" height="20" fill="#E05252"/></g>
+    </g>
+    <g class="line" opacity="0" style="--chars:27;--end:275.4px;--delay:10s">
+      <defs><clipPath id="clip-2" clipPathUnits="userSpaceOnUse"><rect class="reveal" x="28" y="12" width="0" height="32"/></clipPath></defs>
+      <text x="28" y="35" textLength="275.4" lengthAdjust="spacingAndGlyphs" clip-path="url(#clip-2)">Firebird • PostgreSQL • SQL</text>
+      <g class="cursor"><rect class="blink" x="29" y="19" width="1.5" height="20" fill="#E05252"/></g>
+    </g>
+    <g class="line" opacity="0" style="--chars:27;--end:275.4px;--delay:15s">
+      <defs><clipPath id="clip-3" clipPathUnits="userSpaceOnUse"><rect class="reveal" x="28" y="12" width="0" height="32"/></clipPath></defs>
+      <text x="28" y="35" textLength="275.4" lengthAdjust="spacingAndGlyphs" clip-path="url(#clip-3)">React • Node.js • APIs REST</text>
+      <g class="cursor"><rect class="blink" x="29" y="19" width="1.5" height="20" fill="#E05252"/></g>
+    </g>
+    <g class="line" opacity="0" style="--chars:35;--end:357.0px;--delay:20s">
+      <defs><clipPath id="clip-4" clipPathUnits="userSpaceOnUse"><rect class="reveal" x="28" y="12" width="0" height="32"/></clipPath></defs>
+      <text x="28" y="35" textLength="357.0" lengthAdjust="spacingAndGlyphs" clip-path="url(#clip-4)">Integrações e manutenção de legados</text>
+      <g class="cursor"><rect class="blink" x="29" y="19" width="1.5" height="20" fill="#E05252"/></g>
+    </g>
+  </g>
+</svg>

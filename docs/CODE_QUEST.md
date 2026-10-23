@@ -1,6 +1,6 @@
 # CODE QUEST — Pedro Costinha
 
-Uma fase original em pixel art sobre o calendário real de contribuições de
+A V2 é uma fase original em pixel art sobre o calendário real de contribuições de
 **PedroCostinha**. O SVG é autocontido: não usa JavaScript, imagens remotas,
 fontes externas, Canvas ou `foreignObject`. O ciclo dura **20,8 segundos**.
 
@@ -13,11 +13,19 @@ intervalo retornado não recebem quadrados inventados.
 
 O grafite representa ausência de contribuições. Quatro tons de vermelho
 representam os quatro níveis relativos da API, não intervalos fixos de commits.
-Os patamares acima do calendário usam o maior nível de atividade de grupos de
-quatro semanas; grupos finais curtos são unidos ao anterior. Eles são uma
-interpretação decorativa da atividade, sem alterar os quadrados do calendário.
-Moedas aparecem apenas em patamares com nível 3 ou 4: **uma moeda não equivale
-a um commit**. Um ano com pouca atividade pode ter poucas moedas ou nenhuma.
+A borda superior do calendário forma o percurso. O maior nível de atividade de
+cada grupo de seis semanas determina sua elevação (0–16 px); grupos finais com
+menos de três semanas são unidos ao anterior. As fundações ficam acima da
+primeira linha e não cobrem nenhum dia. Um contorno vermelho temporário percorre
+as semanas em sincronia com a posição horizontal do explorador; os preenchimentos
+e as contagens originais permanecem intactos.
+
+Cada grupo com atividade de nível 3 ou 4 pode oferecer uma moeda, alinhada à
+semana de um dia real desse nível. Selecionamos por nível, contagem e data,
+com desempate determinístico. A moeda acompanha a altura exata da trajetória,
+inclusive durante saltos; na coleta, o dia de origem recebe um contorno dourado.
+**Uma moeda não equivale a um commit.** Um ano com pouca atividade pode ter poucas
+moedas ou nenhuma.
 
 `calendar.json` guarda somente login público, origem, total e os agregados de
 cada dia. Não consultamos nomes de repositórios, commits, empresas, mensagens ou
@@ -36,13 +44,17 @@ privado visto pelo titular autenticado.
 | `scripts/code_quest/scene.py` | Cenário, calendário, cronogramas CSS e validação XML |
 | `assets/code-quest/calendar.json` | Dados agregados reais utilizados na geração |
 | `assets/code-quest/code-quest.svg` | Arte animada incorporada ao README |
+| `assets/code-quest/code-quest-static.svg` | Mesmos dados e cena final, sem animações; fonte alternativa do picture |
 | `assets/code-quest/preview.png` | Fotograma de apresentação; não é o calendário atualizado |
 | `tests/test_code_quest.py` | Testes lógicos e de integridade |
 | `.github/workflows/update-code-quest.yml` | Testes e atualização diária |
 
-O explorador tem quatro quadros de corrida, salto, queda, aterrissagem, coleta,
-parada e comemoração. As pernas e os braços mudam de posição. A mesma trajetória
-calcula o movimento e a coleta, evitando cronogramas independentes. Os saltos
+O explorador usa uma grade original de 20×24 pixels, com escala 1,75 e altura
+máxima de 42 px no SVG (V1: 40 px). Tem seis quadros distintos de corrida e
+15 poses: idle, aceleração, corrida, subida, ápice, queda, aterrissagem, coleta,
+vitória e comemoração. A mesma trajetória calcula movimento, coleta, partículas,
+contador e passagem pelas semanas. O personagem acelera suavemente por 0,32 s;
+depois mantém velocidade horizontal constante. Os saltos
 começam antes das bordas, respeitam a largura do personagem e terminam sobre
 o patamar seguinte. Poeira acompanha as aterrissagens. Nuvens, estrelas,
 silhuetas da cidade e bandeira completam o cenário sem alterar os dados.
@@ -51,6 +63,11 @@ O calendário permanece estável. A camada cinematográfica desaparece suavement
 no final e reaparece no início, ocultando a reposição do personagem e moedas.
 `prefers-reduced-motion: reduce` desliga as animações CSS e mostra o calendário,
 personagem parado junto à bandeira, contador final e mensagem de conclusão.
+O README também usa `<picture>` com uma fonte SVG estática para essa preferência.
+Isso evita depender da propagação de preferências para SVGs dentro de `<img>`;
+na emulação local do Chrome, essa propagação não aconteceu, embora o SVG aberto
+diretamente respeitasse a preferência. O arquivo estático é gerado do mesmo
+calendário, validado e atualizado junto com a versão animada.
 
 ## Gerar e testar
 
@@ -80,7 +97,7 @@ python scripts/generate_code_quest.py --calendar assets/code-quest/calendar.json
 O modo de reprodução é explícito. O modo normal exige token e **nunca recorre
 silenciosamente a dados simulados, vazios ou ao cache**. Dados simulados são
 criados somente pelos testes. `--check` verifica correspondência integral entre
-as células do SVG e os dados, estrutura XML, IDs/referências, tamanho e
+as células dos dois SVGs e os dados, estrutura XML, IDs/referências, tamanho e
 reprodutibilidade. O orçamento máximo do SVG é 250 kB, com viewBox 1200×520.
 
 ## Atualização diária
@@ -90,9 +107,18 @@ O workflow executa diariamente às **08:17 UTC / 05:17 de Brasília**, aceita
 do GitHub podem atrasar; não são um serviço com horário garantido.
 
 O job de testes tem apenas `contents: read`. O job de atualização usa apenas
-`contents: write`, necessário para publicar os dois artefatos. A consulta
+`contents: write`, necessário para publicar calendário e dois SVGs. A consulta
 GraphQL solicita exclusivamente `contributionCalendar` com dias e total.
-As ações de checkout e Python estão fixadas por SHA. Pull requests executam
+As ações de checkout e Python estão fixadas por SHA. Na revisão de 23/10/2026,
+foram atualizadas para `checkout v7.0.1` e `setup-python v7.1.0`, ambas com runtime
+Node 24, mantendo Python 3.12. `ubuntu-24.04` fixa o sistema conhecido durante
+a migração de `ubuntu-latest` para 26.04. Gatilhos, token, permissões e horário
+foram preservados. O job inclui o SVG estático na publicação condicionada a diff.
+
+Referências oficiais da atualização: [checkout v7.0.1](https://github.com/actions/checkout/releases/tag/v7.0.1),
+[setup-python v7.1.0](https://github.com/actions/setup-python/releases/tag/v7.1.0),
+[retirada do Node 20](https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions/)
+e [migração do Ubuntu](https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration/). Pull requests executam
 somente testes, sem o job que escreve no repositório.
 
 Erros transitórios de rede, HTTP 429/5xx e limites explícitos recebem até quatro
@@ -131,7 +157,7 @@ incluindo semanas parciais; não é arbitrariamente truncado para 365 células.
 Os testes cobrem anos de 52, 53 e 54 semanas, semanas parciais, zero e alta
 atividade, datas duplicadas/ausentes, totais e níveis incoerentes, respostas
 inválidas, autenticação, indisponibilidade e limite de requisições. Colisões
-são verificadas em milhares de posições com a largura corporal do sprite;
+são verificadas em milhares de posições com toda a largura de 35 px do sprite;
 coletas são conferidas contra a posição e o nível real do patamar.
 
 A revisão visual usa entrada, corrida, primeiro salto, coleta, aproximação da

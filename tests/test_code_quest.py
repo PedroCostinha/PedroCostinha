@@ -13,8 +13,9 @@ import xml.etree.ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from code_quest.data import fetch_calendar, normalize_graphql, validate_calendar, LEVELS
-from code_quest.motion import DURATION, FINISH, START, Route
-from code_quest.scene import render, validate_svg
+from code_quest.motion import DURATION, FINISH, START, Route, SPRITE_HEIGHT, SPRITE_HALF_WIDTH, GRID_X, GRID_Y, POSES
+from code_quest.scene import render, render_static, validate_svg, build_styles, pct
+from code_quest.sprites import sprite_grid, sprite_defs, SPRITE_SCALE
 from generate_code_quest import write_if_changed
 import generate_code_quest
 
@@ -187,6 +188,136 @@ class RenderTests(unittest.TestCase):
                 with self.assertRaises(ValueError): generate_code_quest.main()
             self.assertEqual((root/'code-quest.svg').read_text(), 'previous SVG')
             self.assertEqual((root/'calendar.json').read_text(), 'previous calendar')
+
+
+class V2Tests(unittest.TestCase):
+    def test_sprite_dimensions_and_distinct_run_frames(self):
+        self.assertEqual(SPRITE_HEIGHT, 42)
+        grids = {pose: sprite_grid(pose) for pose in POSES}
+        for grid in grids.values():
+            self.assertEqual(len(grid) * SPRITE_SCALE, SPRITE_HEIGHT)
+            self.assertTrue(all(len(row) * SPRITE_SCALE == 2 * SPRITE_HALF_WIDTH for row in grid))
+        runs = {tuple(''.join(row) for row in grids[f'run{i}']) for i in range(6)}
+        self.assertEqual(len(runs), 6)
+        self.assertEqual(len(ET.fromstring(f'<svg>{sprite_defs()}</svg>').findall('g')), len(POSES)+1)
+
+    def test_entire_sprite_clears_platforms_and_calendar(self):
+        for payload in (fixture(), fixture(level=0), fixture(level=4), fixture(date(2023,12,30),371)):
+            route = Route(validate_calendar(payload))
+            for i in range(5001):
+                t = START + (FINISH - START) * i / 5000
+                x,y = route.position(t)
+                self.assertLess(y, GRID_Y)
+                for platform in route.platforms:
+                    if x+SPRITE_HALF_WIDTH > platform.x and x-SPRITE_HALF_WIDTH < platform.end:
+                        self.assertLessEqual(y, platform.y + .02, (t, platform))
+
+    def test_acceleration_and_inverse_timing(self):
+        route = Route(validate_calendar(fixture()))
+        for i in range(1001):
+            t = START + (FINISH-START)*i/1000
+            self.assertAlmostEqual(route.time_at(route.x_at(t)), t, places=6)
+        initial = route.x_at(START+.01)-route.x_at(START)
+        full = route.x_at(START+1.01)-route.x_at(START+1)
+        self.assertLess(initial, full/10)
+        self.assertEqual(route.x_at(0), route.left)
+        self.assertAlmostEqual(route.x_at(FINISH), route.right)
+
+    def test_elevation_is_derived_from_six_week_activity(self):
+        c = validate_calendar(fixture())
+        route = Route(c)
+        for i,p in enumerate(route.platforms):
+            stop = route.platforms[i+1].first_week if i+1<len(route.platforms) else c.weeks
+            self.assertEqual(p.level, max(d.level for d in c.days if p.first_week<=d.week<stop))
+            self.assertLessEqual(GRID_Y-p.y,22)
+
+    def test_week_highlights_preserve_every_real_cell(self):
+        c = validate_calendar(fixture(date(2023,12,30),371))
+        route = Route(c)
+        svg = render(c)
+        root = ET.fromstring(svg)
+        highlights = [e for e in root.iter() if e.get('data-week') is not None]
+        self.assertEqual([int(e.get('data-week')) for e in highlights], list(range(c.weeks)))
+        for week,t in enumerate(route.week_times):
+            self.assertAlmostEqual(route.x_at(t), GRID_X+(week+.5)*route.pitch)
+        validate_svg(svg,c)
+
+    def test_sparse_boundary_activity_still_has_a_collectible(self):
+        payload = fixture(level=0)
+        payload['days'][-2].update(count=13,level=4)
+        payload['total'] = 13
+        route = Route(validate_calendar(payload))
+        self.assertEqual(len(route.coins),1)
+        coin = route.coins[0]
+        self.assertEqual(coin.date,payload['days'][-2]['date'])
+        self.assertEqual(coin.level,4)
+        x,y=route.position(coin.collected)
+        self.assertAlmostEqual(x,coin.x)
+        self.assertAlmostEqual(y-29,coin.y)
+        self.assertEqual(route.pose(coin.collected),'collect')
+
+    def test_coin_disappears_and_counter_changes_at_same_instant(self):
+        route = Route(validate_calendar(fixture(level=4)))
+        styles = build_styles(route)
+        for i,coin in enumerate(route.coins):
+            key = pct(coin.collected)+'{opacity:0}'
+            self.assertIn(key, styles.split(f'@keyframes coin{i}'+'{')[1].split(f'.coin{i}')[0])
+            self.assertIn(key, styles.split(f'@keyframes count{i}'+'{')[1].split(f'.count{i}')[0])
+            self.assertIn(pct(coin.collected)+'{opacity:1}',styles.split(f'@keyframes count{i+1}'+'{')[1].split(f'.count{i+1}')[0])
+        # A zero-coin year must show 00 for the entire loop.
+        styles = build_styles(Route(validate_calendar(fixture(level=0))))
+        self.assertIn('@keyframes count0{0.0000%{opacity:1}100.0000%{opacity:1}}',styles)
+
+    def test_jump_poses_and_touchdown(self):
+        route=Route(validate_calendar(fixture(level=0)))
+        for jump in route.jumps:
+            apex=.5-(jump.end_y-jump.y)/(8*jump.height)
+            for u,pose in ((.2,'jump'),(apex,'apex'),(.8,'fall')):
+                t=route.time_at(jump.x+(jump.end-jump.x)*u)
+                self.assertEqual(route.pose(t),pose)
+            self.assertEqual(route.pose(route.time_at(jump.end)+.05),'land')
+
+    def test_finish_and_hidden_reset(self):
+        route=Route(validate_calendar(fixture()))
+        self.assertEqual(route.pose(FINISH),'victory')
+        self.assertEqual(route.pose(18),'celebrate')
+        self.assertEqual(route.pose(DURATION),'idle')
+        self.assertEqual(route.position(0),route.position(DURATION % DURATION))
+        self.assertIn('98%{opacity:0}',build_styles(route))
+
+    def test_reduced_motion_final_pose_and_no_highlights(self):
+        styles=build_styles(Route(validate_calendar(fixture())))
+        reduced=styles.split('@media(prefers-reduced-motion:reduce)')[1]
+        self.assertIn('animation:none!important',reduced)
+        self.assertIn('.victory{display:inline;opacity:1}',reduced)
+        self.assertIn('.week,.activity-link{display:none}',reduced)
+        self.assertIn('.static-count{display:inline}',reduced)
+
+    def test_size_budget_even_for_full_activity_and_54_weeks(self):
+        for p in (fixture(level=0),fixture(level=4),fixture(date(2023,12,30),371,4)):
+            c=validate_calendar(p)
+            svg=render(c)
+            validate_svg(svg,c)
+            self.assertLess(len(svg.encode()),250_000)
+
+    def test_saved_real_calendar_replay_is_deterministic_and_coins_are_real(self):
+        c=validate_calendar(json.loads((Path(__file__).parents[1]/'assets/code-quest/calendar.json').read_text()))
+        self.assertEqual(render(c),render(c))
+        for coin in Route(c).coins:
+            day=next(d for d in c.days if str(d.date)==coin.date)
+            self.assertEqual(day.level,coin.level)
+            self.assertGreaterEqual(day.level,3)
+            self.assertGreater(day.count,0)
+
+    def test_static_picture_source_has_identical_data_without_animation(self):
+        c=validate_calendar(fixture())
+        svg=render_static(c)
+        validate_svg(svg,c)
+        self.assertNotIn('@keyframes',svg)
+        self.assertIn('.complete{opacity:1}',svg)
+        self.assertIn('.victory{display:inline;opacity:1}',svg)
+        readme=(Path(__file__).parents[1]/'README.md').read_text(encoding='utf-8')
+        self.assertIn('media="(prefers-reduced-motion: reduce)" srcset="assets/code-quest/code-quest-static.svg"',readme)
 
 
 if __name__ == '__main__':

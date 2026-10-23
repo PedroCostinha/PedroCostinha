@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="56" viewBox="0 0 440 56" role="img" aria-labelledby="title desc">
+  <title id="title">Foco técnico de Pedro Costa — sem movimento</title>
+  <desc id="desc">Desktop, dados e web. As tecnologias completas estão disponíveis em texto no README.</desc>
+  <rect x=".5" y=".5" width="439" height="55" rx="6" fill="#161B22" stroke="#30363D"/>
+  <text x="12" y="35" fill="#E05252" font-family="Consolas, 'Liberation Mono', monospace" font-size="17">&gt;</text>
+  <text x="28" y="35" fill="#E6EDF3" font-family="Consolas, 'Liberation Mono', monospace" font-size="17">Desktop • Dados • Web</text>
+</svg>

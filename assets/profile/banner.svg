@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">PEDRO COSTA — Software Developer</title>
+  <desc id="desc">Sistemas empresariais, dados e integrações. Tipografia clara sobre grafite, com uma linha vermelha conectando desktop, dados e web.</desc>
+  <rect x=".5" y=".5" width="1199" height="309" rx="12" fill="#0D1117" stroke="#30363D"/>
+  <path d="M.5 52V13A12.5 12.5 0 0 1 13 .5H120" stroke="#D94A4A" stroke-width="2"/>
+  <text x="60" y="51" fill="#B8C1CC" font-family="Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2">PEDROCOSTINHA <tspan fill="#D94A4A">/</tspan> SOFTWARE ENGINEERING</text>
+  <text x="56" y="158" fill="#E6EDF3" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="-3">PEDRO COSTA<tspan fill="#D94A4A">.</tspan></text>
+  <text x="60" y="205" fill="#E6EDF3" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="28">Software Developer</text>
+  <path d="M60 254H88" stroke="#D94A4A" stroke-width="2"/>
+  <text x="102" y="260" fill="#B8C1CC" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="18">Sistemas empresariais, dados e integrações.</text>
+  <!-- Three connected layers: a compact diagram of the developer's work. -->
+  <path d="M859 88H1138M859 145H1138M859 202H1138" stroke="#21262D"/>
+  <path d="M889 88V116H925V173H961V202" stroke="#D94A4A" stroke-width="2"/>
+  <g fill="#0D1117" stroke="#D94A4A" stroke-width="2">
+    <rect x="884" y="83" width="10" height="10" rx="2"/>
+    <rect x="920" y="140" width="10" height="10" rx="2"/>
+    <rect x="956" y="197" width="10" height="10" rx="2"/>
+  </g>
+  <g fill="#B8C1CC" font-family="Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="1.5">
+    <text x="986" y="93">DESKTOP</text>
+    <text x="986" y="150">DADOS</text>
+    <text x="986" y="207">WEB</text>
+  </g>
+  <text x="860" y="260" fill="#B8C1CC" font-family="Consolas, 'Liberation Mono', monospace" font-size="11" letter-spacing="2">CÓDIGO EM EVOLUÇÃO</text>
+</svg>

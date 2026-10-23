@@ -56,61 +56,109 @@ def pixel_text(text, x, y, scale=1, color='#F2F2F2', css='', anchor='start'):
     commands = []
     for index, char in enumerate(text.upper()):
         for row, pixels in enumerate(GLYPHS.get(char, '').split('/')):
-            for col, pixel in enumerate(pixels):
-                if pixel == '1':
-                    commands.append(f'M{index * 6 + col} {row}h1v1h-1z')
+            col = 0
+            while col < len(pixels):
+                if pixels[col] != '1':
+                    col += 1
+                    continue
+                end = col + 1
+                while end < len(pixels) and pixels[end] == '1':
+                    end += 1
+                width = end-col
+                commands.append(f'M{index * 6 + col} {row}h{width}v1h-{width}z')
+                col = end
     return (f'<g aria-label="{escape(text)}" class="{css}" transform="translate({x:g} {y:g}) scale({scale:g})">'
             f'<path fill="{color}" d="{"".join(commands)}"/></g>')
 
 
-PALETTE = {'o':'#09090D', 'r':'#E53935', 's':'#A71D2A', 'h':'#FF7770',
-           'v':'#E8DAC5', 'w':'#F2F2F2', 'd':'#353542', 'l':'#666675', 'g':'#C9A35D'}
-TORSO = [
-    '      ooooo     ',
-    '     orrrrro    ',
-    '    orhrrrrro   ',
-    '    orrrrrrro   ',
-    '    ossvvvvvo   ',
-    '    ovvvvvwvo   ',
-    '     ovvvvovo   ',
-    '     oovvvoo    ',
-    '   oosrrrro     ',
-    '  osoddddooo    ',
-    '  osodldddlo    ',
-    '  osodlddddo    ',
-    '   oodddgddo    ',
-    '    oddddddo    ',
-]
+# 20 x 24 source pixels, enlarged to 35 x 42 SVG units. No commercial sprites.
+from .motion import POSES, SPRITE_HEIGHT
+
+SPRITE_SCALE = 1.75
+PALETTE = {'o':'#09090D', 'r':'#D94A4A', 's':'#96313E', 'h':'#FF8276',
+           'v':'#EAC8A5', 'k':'#B78473', 'w':'#E6EDF3', 'd':'#252631',
+           'l':'#484B60', 'b':'#15151E', 'g':'#D4AB60', 't':'#888C9F'}
+TORSO = (
+    '       oooooo',
+    '      orhhhrrro',
+    '     orrrrrrrrro',
+    '     osrrrrrrrrro',
+    '     ossssrrrrrrro',
+    '      okvvvvvooo',
+    '      ovvvvwvvo',
+    '      okvvvovvo',
+    '       okvvvvo',
+    '      oossssoo',
+    '     osrdldddlo',
+    '     osodlddddo',
+    '      oodlgdddo',
+    '       odddddo',
+    '       olggglo',
+    '       obbbbbo',
+)
 LEGS = {
-    'run0':['    oddooddo    ','   oddo  oddo   ','  oddo    oddo  ','  olo      olo  ',' ooowo    oowwo ',' ooooo    ooooo '],
-    'run1':['     oddddo     ','      oddo      ','     odddo      ','    oddlo       ','    owwwo       ','    ooooo       '],
-    'run2':['    oddooddo    ','   oddo  oddo   ','  oddo    oddo  ','  olo      olo  ',' owwwo    owwoo ',' ooooo    ooooo '],
-    'run3':['     oddddo     ','      oddo      ','      odddo     ','       olddo    ','       owwwo    ','       ooooo    '],
-    'idle':['    oddooddo    ','    oddooddo    ','    oddooddo    ','    oloooloo    ','   owwwoowwwo   ','   oooooooooo   '],
-    'jump':['    odddddo     ','    oddooddo    ','     oo  oddo   ','          olo   ','         owwwo  ','         ooooo  '],
-    'fall':['    oddooddo    ','    oddooddo    ','    oddooddo    ','    oloooloo    ','    owwoowwo    ','    oooo oooo   '],
-    'land':['    odddddo     ','   oddo oddo    ','   olo   olo    ','  owwwo owwwo   ','  ooooo ooooo   ','                '],
+    'idle': ('       oddoddo','       oddoddo','       oldodlo','       oddoddo',
+             '       obbodbo','      otwwotwwo','      oooo oooo','      oooo oooo'),
+    'run0': ('      oddooddo','     oddo  oddo','    oldo    odlo','   oddo      oddo',
+             '  obbo        obbo',' otwwo        otwwo',' ooooo        ooooo',' ooooo        ooooo'),
+    'run1': ('       oddddo','      oddooddo','     oldo  oddo','    oddo    oddo',
+             '   obbo    obbo','  otwwo   otwwo','  ooooo   ooooo','          ooooo'),
+    'run2': ('       oddddo','       oddoddo','        oldoddo','       oddo obbo',
+             '      obbo otwwo','     otwwo ooooo','     ooooo','     ooooo'),
+    'run3': ('      oddooddo','     oddo  oddo','    oldo    odlo','   oddo      oddo',
+             '  obbo        obbo',' otwwwo       otwwo',' oooooo       ooooo',' oooooo       ooooo'),
+    'run4': ('       oddddo','      oddooddo','      oddo  oldo','     oddo    oddo',
+             '     obbo     obbo','    otwwo    otwwo','    ooooo    ooooo','    ooooo'),
+    'run5': ('       oddddo','      oddoddo','     oddodlo','    obbo oddo',
+             '   otwwo  obbo','   ooooo otwwo','         ooooo','         ooooo'),
+    'jump': ('       odddddo','      oddoodddo','     oddo  odddo','     obbo   oldo',
+             '     otwwo  obbo','     ooooo otwwo','           ooooo','           ooooo'),
+    'apex': ('      oddddddo','     oddooodddo','    oddo   odddo','    obbo    obbo',
+             '    otwwo   otwwo','    ooooo   ooooo','            ooooo','            ooooo'),
+    'fall': ('       oddoddo','       oldodlo','       oddoddo','       oddoddo',
+             '      obbo obbo','     otwwo otwwo','     ooooo ooooo','     ooooo ooooo'),
+    'land': ('      odddddddo','     oldo   odlo','     obbo   obbo','    otwwo   otwwo',
+             '    ooooo   ooooo','    ooooo   ooooo'),
 }
+
+
+def sprite_grid(pose):
+    legs = LEGS.get(pose, LEGS['idle'])
+    torso = list(TORSO)
+    if pose in ('accelerate', 'run1', 'run2', 'run4', 'run5'):
+        torso = [' ' + row for row in torso]
+    if pose == 'land':
+        torso = ['',''] + torso
+    grid = [list(row.ljust(20)) for row in torso + list(legs)]
+    if len(grid) != 24 or any(len(row) != 20 for row in grid):
+        raise ValueError('Sprite must fit its 20 x 24 source grid')
+    # Articulated arms swing in opposition to the legs; gloves have dark outlines.
+    phase = int(pose[-1]) if pose.startswith('run') else 0
+    if pose.startswith('run') or pose == 'accelerate':
+        arms = ([(5,11),(4,12),(3,13),(14,10),(15,9),(16,9)] if phase < 3 else
+                [(5,10),(4,9),(3,9),(14,11),(15,12),(16,13)])
+    elif pose in ('jump','apex','collect','victory','celebrate'):
+        arms = [(14,10),(15,9),(16,8),(16,7),(16,6)]
+        if pose in ('apex','victory','celebrate'):
+            arms += [(5,10),(4,9),(3,8),(3,7),(3,6)]
+    else:
+        arms = [(5,11),(5,12),(5,13),(14,11),(14,12),(14,13)]
+    for i,(x,y) in enumerate(arms):
+        for dx,dy in ((-1,0),(1,0),(0,-1),(0,1)):
+            if grid[y+dy][x+dx] == ' ':
+                grid[y+dy][x+dx] = 'o'
+        grid[y][x] = 'v' if i in (2,5,len(arms)-1) else 'l'
+    return grid
 
 
 def sprite_defs():
     result = []
-    for pose in ('idle', 'run0', 'run1', 'run2', 'run3', 'jump', 'fall', 'land', 'collect', 'celebrate'):
-        grid = [list(row.ljust(16)) for row in TORSO + LEGS.get(pose, LEGS['idle'])]
-        if pose in ('jump', 'collect', 'celebrate'):
-            for x, y in ((12, 8), (13, 7), (14, 6), (14, 5)):
-                grid[y][x] = 'v' if y < 7 else 'd'
-        if pose == 'celebrate':
-            for x, y in ((3, 8), (2, 7), (1, 6), (1, 5)):
-                grid[y][x] = 'v' if y < 7 else 'd'
-        if pose.startswith('run'):
-            phase = int(pose[-1])
-            for x, y in ((12, 10), (13, 11 if phase % 2 else 9), (14, 12 if phase % 2 else 8)):
-                grid[y][x] = 'v' if x == 14 else 'd'
-        result.append(f'<g id="sprite-{pose}" transform="translate(-16 -40) scale(2)" shape-rendering="crispEdges">')
+    for pose in POSES:
+        grid = sprite_grid(pose)
+        result.append(f'<g id="sprite-{pose}" transform="translate(-17.5 -{SPRITE_HEIGHT}) scale({SPRITE_SCALE})" shape-rendering="crispEdges">')
         for char, color in PALETTE.items():
             path = []
-            for y, row in enumerate(grid):
+            for y,row in enumerate(grid):
                 x = 0
                 while x < len(row):
                     if row[x] != char:
@@ -121,9 +169,13 @@ def sprite_defs():
                         end += 1
                     path.append(f'M{x} {y}h{end-x}v1h{x-end}z')
                     x = end
-            result.append(f'<path fill="{color}" d="{"".join(path)}"/>')
+            if path:
+                result.append(f'<path fill="{color}" d="{"".join(path)}"/>')
         result.append('</g>')
-    result.append('<g id="coin"><path fill="#8C652A" d="M-3-8H3V-6H6V6H3V8H-3V6H-6V-6H-3Z"/>'
-                  '<path fill="#E3BA61" d="M-2-7H2V-5H4V5H2V7H-2V5H-4V-5H-2Z"/>'
-                  '<path fill="#FFF0B5" d="M-1-4H1V4H-1Z"/></g>')
+    result.append('<g id="coin" shape-rendering="crispEdges">'
+                  '<path fill="#6A4328" d="M-3-9H3V-7H6V7H3V9H-3V7H-6V-7H-3Z"/>'
+                  '<path fill="#D4A347" d="M-3-8H3V-6H5V6H3V8H-3V6H-5V-6H-3Z"/>'
+                  '<path fill="#F5D57C" d="M-2-7H2V-5H3V5H2V7H-2V5H-3V-5H-2Z"/>'
+                  '<path fill="#AF7933" d="M0-4H2V4H0ZM-2 4H0V6H-2Z"/>'
+                  '<path fill="#FFF0BF" d="M-2-5H0V2H-2ZM-3-6H0V-5H-3Z"/></g>')
     return ''.join(result)
