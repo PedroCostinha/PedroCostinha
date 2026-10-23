@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 
 from code_quest.data import fetch_calendar, validate_calendar
-from code_quest.scene import render, validate_svg
+from code_quest.scene import render, render_static, validate_svg
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'assets' / 'code-quest'
@@ -39,14 +39,20 @@ def main():
         validate_svg(svg, calendar)
         if svg != render(calendar):
             raise ValueError('Saved SVG is not reproducible from the saved calendar')
+        static = (ASSETS / 'code-quest-static.svg').read_text(encoding='utf-8')
+        validate_svg(static, calendar)
+        if static != render_static(calendar):
+            raise ValueError('Static SVG is not reproducible from the saved calendar')
         print(f'Valid: {len(calendar.days)} days, {calendar.weeks} weeks, {calendar.total} contributions, {len(svg.encode())} bytes')
         return
     payload = json.loads(args.calendar.read_text(encoding='utf-8')) if args.calendar else fetch_calendar(os.environ.get('GITHUB_TOKEN'))
     calendar = validate_calendar(payload)
     svg = render(calendar)
-    # Fetch, validate and render everything before replacing either output.
+    static = render_static(calendar)
+    # Fetch, validate and render everything before replacing any output.
     saved = json.dumps(payload, ensure_ascii=False, separators=(',', ':')) + '\n'
     changed = write_if_changed(ASSETS / 'code-quest.svg', svg)
+    changed |= write_if_changed(ASSETS / 'code-quest-static.svg', static)
     changed |= write_if_changed(ASSETS / 'calendar.json', saved)
     print(f'{"Updated" if changed else "Unchanged"}: {calendar.total} real contributions, source={calendar.source}')
 

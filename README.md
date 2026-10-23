@@ -1,64 +1,69 @@
-# 👋 Olá! Eu sou o Pedro Costa
+<p>
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile/banner-mobile.svg">
+  <img src="assets/profile/banner.svg" alt="Pedro Costa — Software Developer. Sistemas empresariais, dados e integrações." width="1200">
+</picture>
+</p>
 
-Desenvolvedor de Software com experiência em sistemas empresariais, atuando tanto em aplicações desktop quanto em desenvolvimento web.
+<p>
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/profile/typing-static.svg">
+  <img src="assets/profile/typing.svg" alt="Foco técnico: Delphi / Object Pascal; sistemas empresariais; Firebird, PostgreSQL e SQL; React, Node.js e APIs REST; integrações e manutenção de legados." width="440">
+</picture>
+</p>
 
-Atualmente trabalho com manutenção, evolução e implementação de novas funcionalidades em sistemas reais de produção.
+## Sobre mim
+
+Desenvolvo sistemas empresariais, aplicações desktop e web. Trabalho com manutenção, evolução e implementação de funcionalidades em software utilizado em produção, conectando interfaces, bancos de dados e integrações.
+
+## Tecnologias
+
+**Desktop** · `Delphi` · `Object Pascal`<br>
+Sistemas empresariais, relatórios e integrações.
+
+**Dados** · `Firebird` · `PostgreSQL` · `SQL`
+
+**Web** · `JavaScript` · `React` · `Node.js` · `Express` · `APIs REST`
+
+**Práticas** · Git e GitHub, versionamento, manutenção de legados e evolução de software.
+
+## Projetos em destaque
+
+### [CODE QUEST · calendário 2D](https://github.com/PedroCostinha/PedroCostinha#code-quest)
+
+Gerador que transforma o calendário real de contribuições em uma fase 2D. Reúne validação de dados, animação vetorial e atualização automática.
+
+`Python` · `SVG / CSS` · `unittest` · `GitHub Actions`<br>
+[Código e documentação](docs/CODE_QUEST.md)
+
+### [CodeDragon](https://github.com/PedroCostinha/codex-codedragon)
+
+Mascote animado com nove estados e dezesseis direções de olhar. Spritesheet transparente, metadados e documentação de validação e importação no Pets do modo Work. Projeto pessoal e independente.
+
+`Animação 2D` · `Spritesheet PNG` · `JSON` · `Documentação`
 
 <!-- CODE QUEST:START -->
 ## CODE QUEST
 
-Meu calendário real de contribuições em uma fase original de plataforma 2D.
+Um ano de contribuições transformado em uma pequena aventura 2D.
 
-[![CODE QUEST — Pedro Costinha: animação do calendário real de contribuições, com corrida, saltos e coleta de moedas.](assets/code-quest/code-quest.svg)](assets/code-quest/code-quest.svg)
+<a href="assets/code-quest/code-quest.svg">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/code-quest/code-quest-static.svg">
+    <img src="assets/code-quest/code-quest.svg" alt="CODE QUEST V2 — Pedro Costinha: aventura em pixel art pelo calendário real de contribuições." width="1200">
+  </picture>
+</a>
 
-Cada quadrado representa um dia; as moedas são marcos visuais de atividade.
-[Como funciona e como é atualizado](docs/CODE_QUEST.md).
+Cada quadrado representa um dia; as moedas são marcos visuais de atividade.<br>
+[Como funciona e como é atualizado](docs/CODE_QUEST.md)
 <!-- CODE QUEST:END -->
 
-## 💻 Tecnologias
+## Experiência e foco técnico
 
-### Desktop e Banco de Dados
-- Delphi / Object Pascal
-- Firebird
-- SQL
+Atuo com sistemas ERP, rotinas financeiras e fiscais, relatórios e bancos de dados. Desenvolvo integrações entre aplicações desktop e web e mantenho funcionalidades em produção.
 
-### Web
-- JavaScript
-- React
-- Node.js
-- Express
-- PostgreSQL
-
-### Ferramentas e práticas
-- Git
-- GitHub
-- APIs REST
-- JWT
-- Versionamento de código
-- Manutenção de sistemas legados
-- Desenvolvimento de novas funcionalidades
-
-## 🚀 Experiência
-
-Tenho experiência com sistemas ERP, rotinas financeiras e fiscais, relatórios, banco de dados, integrações e aplicações web.
-
-Grande parte do meu trabalho profissional está em repositórios privados. Por isso, algumas das minhas contribuições aparecem de forma anonimizada no meu perfil do GitHub.
-
-## 📚 Atualmente estudando e evoluindo
-
-- JavaScript
-- React
-- Node.js
-- Arquitetura de Software
-- Boas práticas de desenvolvimento
-- SQL e modelagem de banco de dados
-
-## 📊 Atividade no GitHub
-
-Uso o GitHub tanto em projetos pessoais quanto em projetos profissionais privados, mantendo histórico de desenvolvimento, versionamento e evolução dos sistemas.
+Parte do meu trabalho está em repositórios privados; aqui compartilho projetos pessoais.
 
 ---
 
-### 📫 Contato
-
-- GitHub: @PedroCostinha
+**Contato** · [@PedroCostinha no GitHub](https://github.com/PedroCostinha)
