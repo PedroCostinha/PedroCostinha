@@ -36,6 +36,7 @@ jobs:
           python-version: '3.12'
       - run: python -m unittest discover -s tests -v
       - run: python scripts/generate_code_quest.py --check
+      - run: python scripts/generate_arcade.py --check
 
   update:
     needs: test
@@ -55,15 +56,18 @@ jobs:
         run: python scripts/generate_code_quest.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate arcade from the same saved contribution calendar
+        run: python scripts/generate_arcade.py
       - name: Validate generated calendar and SVG
         run: |
           python scripts/generate_code_quest.py --check
+          python scripts/generate_arcade.py --check
           python -m unittest discover -s tests -v
       - name: Publish only changed artifacts
         env:
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          git add -- assets/code-quest/calendar.json assets/code-quest/code-quest.svg assets/code-quest/code-quest-static.svg
+          git add -- assets/code-quest/calendar.json assets/code-quest/code-quest.svg assets/code-quest/code-quest-static.svg assets/arcade/barrel-quest.svg assets/arcade/barrel-quest-static.svg
           if git diff --cached --quiet; then
             echo "Contribution calendar unchanged. No commit needed."
             exit 0

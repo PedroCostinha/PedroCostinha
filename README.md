@@ -58,6 +58,30 @@ Cada quadrado representa um dia; as moedas são marcos visuais de atividade.<br>
 [Como funciona e como é atualizado](docs/CODE_QUEST.md)
 <!-- CODE QUEST:END -->
 
+## ARCADE COLLECTION
+
+Experimentos de engenharia e pixel art com o mesmo calendário real do CODE QUEST.
+
+<details>
+<summary><strong>Barrel Quest</strong> · prévia do protótipo original</summary>
+
+Ember-7 sobe cinco andares de uma estação industrial, desvia de barris e entrega
+pontos derivados das contribuições. Demonstração automática; versão jogável em planejamento.
+
+<a href="assets/arcade/barrel-quest.svg">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/arcade/barrel-quest-static.svg">
+    <img src="assets/arcade/barrel-quest.svg" alt="Barrel Quest: robô original sobe plataformas vermelhas e escadas, salta barris e soma contribuições reais. Demonstração sem controles." width="1200">
+  </picture>
+</a>
+
+[Prévia estática e acessível](assets/arcade/barrel-quest-static.svg) · [Arquitetura, auditoria e próximos jogos](docs/ARCADE_COLLECTION.md)
+
+</details>
+
+Planejados: **Space Defense** e **Code Snake**, com arte original.
+**Pac-Man** está em avaliação de licença e autorização.
+
 ## Experiência e foco técnico
 
 Atuo com sistemas ERP, rotinas financeiras e fiscais, relatórios e bancos de dados. Desenvolvo integrações entre aplicações desktop e web e mantenho funcionalidades em produção.
