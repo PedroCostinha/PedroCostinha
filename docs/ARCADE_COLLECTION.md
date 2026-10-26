@@ -73,6 +73,9 @@ Cinco plataformas inclinadas e quatro escadas formam uma rota demonstrativa.
 O modelo calcula caminhada, corrida, salto e subida; os SVGs usam somente CSS,
 formas e referências internas. Barris seguem as rampas e caem nas extremidades.
 O reinício fica oculto pelo fade da camada móvel; fundo e dados não piscam.
+Na revisão final, o aviso de conclusão foi colocado dentro de um grupo próprio,
+evitando que sua timeline CSS sobrescreva o fade. Um teste de regressão e a QA
+em Chrome/Firefox verificam o desaparecimento do aviso junto com a camada móvel.
 
 Os dias são divididos em cinco trechos cronológicos contíguos, sem descartar
 dias de semanas parciais. Cada terminal de piso entrega a soma de contribuições
@@ -128,6 +131,9 @@ O último comando lê somente o JSON existente e escreve só arquivos alterados.
 revisão manual datada; não participam da atualização diária nem aparecem como
 dados atuais no README. A QA opcional usa `node scripts/preview_arcade.cjs`,
 com Playwright, Sharp e Chrome disponíveis no ambiente de desenvolvimento.
+`ARCADE_BROWSER=firefox` seleciona o Firefox instalado pelo Playwright.
+`node scripts/review_arcade_github.cjs` verifica o README na interface real
+do GitHub, na branch ou no commit de revisão, sem testar o perfil da main.
 Antes de aprovar: preservar bytes dos arquivos CODE QUEST, conferir XML,
 referências, ausência de recursos externos/scripts, orçamento, proveniência,
 pontuação exata, rampas/escadas/saltos, animação em imagem, reinício, fonte

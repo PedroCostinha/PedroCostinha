@@ -1,0 +1,119 @@
+{
+  "engine": "firefox",
+  "browser": "153.0",
+  "frames": [
+    {
+      "time": 0,
+      "x": 160,
+      "y": 564.5,
+      "poses": 1,
+      "score": [
+        "000000"
+      ],
+      "fade": 0,
+      "completionOpacity": 0
+    },
+    {
+      "time": 0.55,
+      "x": 160,
+      "y": 564.5,
+      "poses": 1,
+      "score": [
+        "000000"
+      ],
+      "fade": 0.572917,
+      "completionOpacity": 0
+    },
+    {
+      "time": 1.35,
+      "x": 207.7270050048828,
+      "y": 563.3070068359375,
+      "poses": 1,
+      "score": [
+        "000000"
+      ],
+      "fade": 1,
+      "completionOpacity": 0
+    },
+    {
+      "time": 2.2,
+      "x": 323.6369934082031,
+      "y": 560.4089965820312,
+      "poses": 1,
+      "score": [
+        "000000"
+      ],
+      "fade": 1,
+      "completionOpacity": 0
+    },
+    {
+      "time": 3.84,
+      "x": 547.2730102539062,
+      "y": 526.8309936523438,
+      "poses": 1,
+      "score": [
+        "000000"
+      ],
+      "fade": 1,
+      "completionOpacity": 0
+    },
+    {
+      "time": 6.1,
+      "x": 760,
+      "y": 517.2999877929688,
+      "poses": 1,
+      "score": [
+        "000003"
+      ],
+      "fade": 1,
+      "completionOpacity": 0
+    },
+    {
+      "time": 15,
+      "x": 460,
+      "y": 361,
+      "poses": 1,
+      "score": [
+        "000011"
+      ],
+      "fade": 1,
+      "completionOpacity": 0
+    },
+    {
+      "time": 29.5,
+      "x": 760,
+      "y": 213.5,
+      "poses": 1,
+      "score": [
+        "000287"
+      ],
+      "fade": 1,
+      "completionOpacity": 1
+    },
+    {
+      "time": 31.5,
+      "x": 760,
+      "y": 213.5,
+      "poses": 1,
+      "score": [
+        "000287"
+      ],
+      "fade": 0,
+      "completionOpacity": 0
+    },
+    {
+      "time": 32.25,
+      "x": 160,
+      "y": 564.5,
+      "poses": 1,
+      "score": [
+        "000000"
+      ],
+      "fade": 0.260417,
+      "completionOpacity": 0
+    }
+  ],
+  "assertions": "poses, exact score, jump, climb, hidden reset and next cycle, reduced motion, accessible description, static SVG, picture selection, 320/390/768/1200px overflow, image animation and static stability",
+  "pageErrors": [],
+  "outputDirectory": "docs/arcade/firefox"
+}
