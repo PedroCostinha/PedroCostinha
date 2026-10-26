@@ -1,0 +1,25 @@
+{
+  "engine": "chrome",
+  "version": "155.0.8059.85",
+  "url": "https://github.com/PedroCostinha/PedroCostinha/tree/a92f3ed8f803ef6367b65e86339530bba5bc6b69",
+  "ref": "a92f3ed8f803ef6367b65e86339530bba5bc6b69",
+  "testedAt": "2026-10-26T12:06:15.348Z",
+  "httpStatus": 200,
+  "animatedSrc": "https://github.com/PedroCostinha/PedroCostinha/raw/a92f3ed8f803ef6367b65e86339530bba5bc6b69/assets/arcade/barrel-quest.svg",
+  "staticSrc": "https://github.com/PedroCostinha/PedroCostinha/raw/a92f3ed8f803ef6367b65e86339530bba5bc6b69/assets/arcade/barrel-quest-static.svg",
+  "disclosureKey": "Enter",
+  "disclosureRemainedOpen": true,
+  "localEnterOpened": true,
+  "checks": [
+    "real GitHub branch README",
+    "initially collapsed",
+    "keyboard disclosure",
+    "CODE QUEST image decoded",
+    "picture sources preserved",
+    "animated image changes",
+    "static source decoded and selected",
+    "reduced motion for both games",
+    "390px no overflow"
+  ],
+  "limitation": "This is a branch preview, not the profile published from main; no Safari or screen reader execution."
+}
