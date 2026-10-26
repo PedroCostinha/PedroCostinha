@@ -174,9 +174,11 @@ def render(calendar, *, static=False):
                     rect(944,y-10,100*stage.points/max(1,calendar.total),7,'#C74B5C'),
                     text(1132,y,stage.points,14,'#E9DCE4','text-anchor="end"')])
     out.extend([text(910,560,'DADOS REAIS / GITHUB',11,'#A58B99'),
-                '<g class="moving cinematic complete">',
+                # Separate nodes prevent the completion timeline from replacing
+                # the cinematic fade through the CSS animation shorthand.
+                '<g class="moving cinematic"><g class="complete">',
                 rect(315,180,280,33,'#231923','rx="3" stroke="#82404F"'),
-                text(455,202,'ENTREGAS CONCLUIDAS',15,'#F0C38E','text-anchor="middle"'),'</g>',
+                text(455,202,'ENTREGAS CONCLUIDAS',15,'#F0C38E','text-anchor="middle"'),'</g></g>',
                 text(54,612,f'{first} / {last}',14,'#B8A2AF'),
                 text(1146,612,calendar.source,12,'#A58B99','text-anchor="end"'),
                 text(54,635,'Original pixel art / Pontuacao baseada no snapshot de contribuicoes.',12,'#887481'),

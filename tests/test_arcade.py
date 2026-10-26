@@ -2,6 +2,7 @@
 
 from datetime import date
 import json
+import re
 from pathlib import Path
 import sys
 from tempfile import TemporaryDirectory
@@ -101,6 +102,13 @@ class ArcadeModelTests(unittest.TestCase):
 
 
 class ArcadeRenderTests(unittest.TestCase):
+    def test_cinematic_fade_has_no_competing_animation_on_same_element(self):
+        svg=render(validate_calendar(fixture()))
+        animated=set(re.findall(r'\.([a-zA-Z0-9_-]+)\{animation:',svg))
+        for element in ET.fromstring(svg).iter():
+            animations=set(element.get('class','').split()) & animated
+            self.assertLessEqual(len(animations),1,(element.get('class'),animations))
+
     def test_xml_reproducibility_budget_and_no_duplicate_calendar(self):
         for payload in (fixture(),fixture(level=0),fixture(date(2023,12,30),371,4)):
             c=validate_calendar(payload)
