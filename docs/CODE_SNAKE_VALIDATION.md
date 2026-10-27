@@ -1,5 +1,8 @@
 # Code Snake — validação local, 27/10/2026
 
+Registro histórico. A composição vertical e a integração no workflow diário
+foram revisadas posteriormente em [CODE_SNAKE_FINAL_REVIEW.md](CODE_SNAKE_FINAL_REVIEW.md).
+
 Branch local `feat/code-snake-profile`, base `bceb8e1a87ac1ddf3c04d8cc816a0f17a5449868`. Sem push, publicação ou alteração do workflow. O README desta branch é uma proposta para revisão.
 
 ## Executado

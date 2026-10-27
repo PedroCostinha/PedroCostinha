@@ -46,6 +46,60 @@ sem overflow. Não altera o HTML/CSS da página. Confere animação sem interaç
 seleção responsiva, movimento reduzido e estabilidade dos pixels estáticos
 (tolerância pequena para rasterização, registrada no JSON).
 
-Resultados reais, medidas finais e links de CI serão acrescentados após o
-push da branch de revisão. Safari, celular físico e leitor de tela real
-permanecem pendentes. Esta etapa não aprova merge ou publicação do perfil.
+## GitHub real: antes e depois
+
+Chrome 155.0.8059.85 e Firefox 153.0 executados, ambos sem overflow ou erros
+de página. Antes: commit `bed2270`; depois: commit funcional `0ffa30d`.
+As capturas são do README real dessas revisões, sem substituir HTML/CSS,
+e não da página do perfil publicada pela main. O commit de evidências
+mantém exatamente o mesmo README e os mesmos SVGs do commit funcional.
+
+Dimensões aproximadas no Chrome; no Firefox as diferenças são inferiores
+a 0,1 px. A largura útil do README é menor que a viewport por causa da
+interface do próprio GitHub.
+
+| Viewport | Barrel antes → depois | Snake antes → depois |
+| --- | --- | --- |
+| 320 px | 60×33 → 254×138 | 139×171 → 254×312 |
+| 390 px | 98×53 → 324×176 | 171×210 → 324×398 |
+| 768 px | 142×77 → 406×220 | 209×124 → 406×241 |
+| 1440 px | 376×204 → 838×454 | 407×241 → 838×497 |
+
+Resultados estruturados: [antes Chrome](code-snake-final/before/chrome/results.json),
+[depois Chrome](code-snake-final/after/chrome/results.json),
+[antes Firefox](code-snake-final/before/firefox/results.json) e
+[depois Firefox](code-snake-final/after/firefox/results.json).
+Capturas reais em 390 px: [antes](code-snake-final/before/chrome/github-390-showcase.png)
+e [depois](code-snake-final/after/chrome/github-390-showcase.png).
+Desktop: [antes](code-snake-final/before/chrome/github-1440-showcase.png) e
+[depois](code-snake-final/after/chrome/github-1440-showcase.png).
+As pastas também contêm 320/768 px e as capturas Firefox.
+
+Os dois jogos animaram como `img` sem clique ou expansão. Todos os recursos
+estáticos selecionados depois foram baixados e comparados byte a byte com
+os SVGs locais, sem keyframes. Firefox produziu pares de pixels idênticos;
+Chrome teve variação residual de rasterização (máximo de 18 níveis em um
+canal; maior média absoluta de 0,001161 em escala 0–255). O comparador exige
+bytes SVG exatos, delta máximo ≤32, até 3% dos canais e média ≤0,03. Os JSONs
+registram cada comparação. As capturas documentais aguardam o fade inicial
+com a imagem visível; SVGs fora da viewport podem adiar seu relógio de pintura.
+Nenhum SVG foi alterado para corrigir diferenças do capturador.
+
+As demos locais Snake e Barrel também passaram em ambos os navegadores:
+fontes animadas/estáticas, reset oculto, redução de movimento, espaçamento,
+poses, saltos, escadas e placares. Suíte completa: 49/49; três `--check`
+aprovados. [CI do commit funcional](https://github.com/PedroCostinha/PedroCostinha/actions/runs/40517297851):
+teste aprovado e job de atualização ignorado no PR. Conferir os checks do
+head final no PR após o commit de evidências.
+
+Parecer visual: a composição vertical elimina a distribuição desigual e o
+espaço vazio da tabela. Ambos os cenários ganham presença e os personagens
+ficam mais reconhecíveis. A apresentação segue compacta dentro de cada demo;
+textos internos secundários do Barrel continuam pequenos em 320/390 px,
+limite do SVG original preservado. A página fica mais alta para dar espaço
+às duas imagens, sem duplicá-las ou exigir interação para animar.
+
+Safari, celular físico e leitor de tela real permanecem pendentes. Licenças
+e avisos anteriores foram preservados; o novo script de QA integra o escopo
+MIT do código, e capturas/arte permanecem reservadas a PedroCostinha.
+Esta etapa não aprova merge ou publicação do perfil.
