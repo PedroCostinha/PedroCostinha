@@ -1,8 +1,19 @@
-# ARCADE COLLECTION — auditoria e plano
+# ARCADE COLLECTION — estado atual e auditoria
 
-Auditoria de 26/10/2026. Base do protótipo: `062ff0d110b866defea9845f7e35d7b1017ab3c0`.
-Branch: `feat/arcade-barrel-quest`. Merge, deploy, Pages e criação de outro
-repositório ficam para aprovação posterior.
+**Barrel Quest 1.1.0 está jogável no [GitHub Pages](https://pedrocostinha.github.io/arcade-collection/).**
+O [repositório do jogo](https://github.com/PedroCostinha/arcade-collection) é separado
+do perfil; o commit publicado e validado é
+[`ffc56b1b312bf91889999902398ebe2fa9b74bee`](https://github.com/PedroCostinha/arcade-collection/commit/ffc56b1b312bf91889999902398ebe2fa9b74bee).
+
+A animação SVG do perfil continua demonstrativa, com placar derivado das
+contribuições reais do calendário. A versão interativa tem controles e
+pontuação própria da partida, sem relação com commits ou contribuições.
+
+A auditoria abaixo preserva o histórico do protótipo SVG de 26/10/2026,
+base `062ff0d110b866defea9845f7e35d7b1017ab3c0`, branch original
+`feat/arcade-barrel-quest`. Propostas descritas como parte daquela auditoria
+não representam mudanças adicionais de geradores, SVGs ou automações nesta
+atualização de divulgação do jogo.
 
 ## Perfil e CODE QUEST V2
 
@@ -23,10 +34,11 @@ tentativas limitadas de rede, validação antes do commit e push sem force.
 Credenciais persistidas no checkout do job de publicação permitem seu push;
 o checkout dos testes não as persiste. Não ampliar permissões nem usar PAT.
 
-Alterações necessárias: acrescentar geração/verificação dos dois novos SVGs ao
-mesmo workflow e incluir esses caminhos no commit condicional existente.
-Não criar outro cron, consulta, token ou cópia do JSON. Não alterar o horário.
-O protótipo reproduz o snapshot salvo; não afirma ser uma consulta em tempo real.
+A integração do protótipo SVG já acrescentou geração/verificação dos dois SVGs
+ao mesmo workflow e incluiu esses caminhos no commit condicional existente.
+Esta atualização do README não modifica essa integração, seu horário ou suas
+permissões. O protótipo reproduz o snapshot salvo; não afirma ser uma consulta
+em tempo real. Não há novo cron, consulta, token ou cópia do JSON.
 
 ## Referência Pac-Man e autorização
 
@@ -91,31 +103,31 @@ rótulos pequenos podem exigir ampliação no celular. Link estático sempre vis
 
 ## Coleção e experiência jogável
 
-| Jogo | Situação | Integração planejada |
+| Jogo | Situação | Integração / próximo passo |
 | --- | --- | --- |
 | Pac-Man | Pendente de autorização e revisão dos recursos | Adaptador para snapshot comum, sem novo fetch |
-| Barrel Quest | Protótipo SVG original nesta branch | Validar prévias antes de aprovar integração |
+| Barrel Quest | SVG demonstrativo no perfil e versão interativa 1.1.0 publicada | [Jogar](https://pedrocostinha.github.io/arcade-collection/) · [Código](https://github.com/PedroCostinha/arcade-collection) |
 | Space Defense | Planejado, arte original | Formação de alvos por trechos de atividade; evitar personagens de franquias |
 | Code Snake | Planejado, implementação original | Rota sobre dias reais; manter datas e zero atividade |
 
-O README preserva o bloco CODE QUEST e adiciona uma coleção expansível com uma
-única prévia nova. Jogos futuros recebem links quando houver destinos reais;
-não publicar botões de jogar quebrados ou promessas de jogos já disponíveis.
+O README preserva o bloco CODE QUEST e a animação Barrel Quest expansível.
+O link **🎮 JOGAR BARREL QUEST** permanece fora do `<details>`, visível também
+com a animação recolhida. Jogos futuros só recebem links quando houver
+destinos reais; suas situações na tabela não foram alteradas nesta etapa.
 
-Um repositório próprio, sugerido `PedroCostinha/arcade-collection`, é adequado
-para versões com teclado em GitHub Pages. Ainda não foi criado. Proposta:
-TypeScript com simulação de passo fixo, entrada por setas/WASD e espaço,
-Canvas 2D com escala inteira, pausa, reinício, foco de teclado e alternativa
-textual. Compartilhar especificação/fixtures do modelo demonstrativo e testar
-colisões, escadas, pontuação, foco, pausa e reduced motion antes de publicar.
+O repositório `PedroCostinha/arcade-collection` já contém a versão interativa:
+TypeScript, Canvas 2D, simulação de passo fixo, setas/WASD, Espaço, pausa e
+reinício. O jogo foi publicado em GitHub Pages e validado na URL real em
+Chrome e Firefox, inclusive com missão completa e layout móvel emulado.
+Safari, celular físico e leitor de tela continuam pendentes; a publicação
+não equivale a aprovação dessas plataformas.
 
-O perfil continua sendo produtor do snapshot. Um único build em Pages pode
-baixar o JSON público da branch aprovada, validar esquema e gerar os quatro
-jogos. Não enviar tokens ao cliente; não consultar GraphQL no navegador. Fixar
-o snapshot na sessão e exibir sua data/origem. Usar fluxo oficial Pages com
-`contents: read` no build e `pages: write`/`id-token: write` somente no deploy
-aprovado. Escolher licença para o novo código próprio antes de distribuição
-como biblioteca; nenhuma licença de terceiros foi presumida.
+O perfil continua produzindo o snapshot usado pelas suas animações SVG.
+O Barrel Quest interativo é independente desse calendário: suas cinco cargas,
+barris, vidas e pontos pertencem à partida. Não consulta contribuições,
+GraphQL ou serviços externos em runtime e não exige backend ou token pessoal.
+Seu repositório contém os avisos de licenciamento e o workflow oficial Pages.
+Esta atualização não altera esse repositório nem dispara outro deploy.
 
 ## Critérios de aceite e reprodução
 

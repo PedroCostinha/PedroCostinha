@@ -1,5 +1,13 @@
 # Barrel Quest — revisão final do protótipo
 
+**Registro histórico da validação do SVG demonstrativo.** A versão interativa
+Barrel Quest 1.1.0 foi posteriormente publicada e validada no
+[GitHub Pages](https://pedrocostinha.github.io/arcade-collection/), em
+[repositório separado](https://github.com/PedroCostinha/arcade-collection).
+Seu estado atual está em [ARCADE_COLLECTION.md](ARCADE_COLLECTION.md).
+Os resultados e as pendências abaixo descrevem a revisão original do SVG;
+não devem ser interpretados como o estado atual da versão jogável.
+
 Revisão em 26/10/2026 da branch `feat/arcade-barrel-quest`, partindo de
 `f7b0490`. Código funcional corrigido em `a92f3ed8f803ef6367b65e86339530bba5bc6b69`;
 os commits posteriores desta revisão acrescentam QA e documentação. Base da main:

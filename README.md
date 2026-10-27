@@ -60,13 +60,18 @@ Cada quadrado representa um dia; as moedas são marcos visuais de atividade.<br>
 
 ## ARCADE COLLECTION
 
-Experimentos de engenharia e pixel art com o mesmo calendário real do CODE QUEST.
+Experimentos de engenharia e pixel art: as animações SVG usam contribuições reais;
+o jogo interativo tem pontuação própria da partida.
+
+[**🎮 JOGAR BARREL QUEST**](https://pedrocostinha.github.io/arcade-collection/)
+
+Versão jogável **1.1.0** · [Repositório do jogo](https://github.com/PedroCostinha/arcade-collection)
 
 <details>
-<summary><strong>Barrel Quest</strong> · prévia do protótipo original</summary>
+<summary><strong>Barrel Quest</strong> · animação SVG demonstrativa</summary>
 
 Ember-7 sobe cinco andares de uma estação industrial, desvia de barris e entrega
-pontos derivados das contribuições. Demonstração automática; versão jogável em planejamento.
+pontos derivados das contribuições. Demonstração automática, sem controles.
 
 <a href="assets/arcade/barrel-quest.svg">
   <picture>
