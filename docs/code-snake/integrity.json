@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-27",
+  "gameBase": "ffc56b1b312bf91889999902398ebe2fa9b74bee",
+  "profileBase": "bceb8e1a87ac1ddf3c04d8cc816a0f17a5449868",
+  "gameBranch": "feat/code-snake-playable",
+  "profileBranch": "feat/code-snake-profile",
+  "protectedGames": [
+    "src",
+    "public",
+    "tests",
+    "scripts/build.mjs",
+    "scripts/dev.mjs",
+    "scripts/serve.mjs",
+    "tsconfig.json",
+    "package-lock.json",
+    ".github",
+    "LICENSE-CODE.txt",
+    "ART-RIGHTS.txt",
+    "LICENSING.md"
+  ],
+  "protectedProfile": [
+    "assets/code-quest",
+    "assets/arcade",
+    "scripts/code_quest",
+    "scripts/arcade",
+    "scripts/generate_code_quest.py",
+    "scripts/generate_arcade.py",
+    "tests/test_code_quest.py",
+    "tests/test_arcade.py",
+    ".github"
+  ],
+  "codeQuestReadmeBlockUnchanged": true,
+  "noCodeSnakePlayLink": true,
+  "stableTagUnchanged": true,
+  "defaultArtifactExcludesPrototype": true,
+  "stableArtifact": [
+    {
+      "path": ".nojekyll",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "app.js",
+      "sha256": "ab5e635d441deb3bd156b76c45f9ce8a124539f7e5d7bff2450066d92e4f309f"
+    },
+    {
+      "path": "art/ember7.js",
+      "sha256": "a6570ffbf4772120fb072da9832c16b4f2b0baaf1b62e1c4d1d02b651d47360f"
+    },
+    {
+      "path": "art/identity.js",
+      "sha256": "0da9f9e0cac91dcc04e0fd9cd6e9cafc8ffa50152e73cdbdb545fa701bb210b8"
+    },
+    {
+      "path": "art/scene.js",
+      "sha256": "a0a6c6fcb81acbc3a7b7ab2bf822add35327222bc94232ad03bba056221c3566"
+    },
+    {
+      "path": "ART-RIGHTS.txt",
+      "sha256": "0bf23dd3fa2d90c10bd93c3fc67ab80e59f44e612d8d5dcb569eff9675f60ae0"
+    },
+    {
+      "path": "browser/controls.js",
+      "sha256": "aeab237f8cb6e289aec221e2fa7a9e4f663ef0634a0f8d9b9fdb02e4d3517599"
+    },
+    {
+      "path": "core/clock.js",
+      "sha256": "ec27054104fc84279cf846e7f3b2862d6fbdaa8bb2b285c88f26a9716d734029"
+    },
+    {
+      "path": "core/collision.js",
+      "sha256": "0c115668b9480b25bddae986a2943d75e16eea38c3f2333c5de50fa13e1fdcee"
+    },
+    {
+      "path": "core/game.js",
+      "sha256": "10ac7568c0886d50c04d229740891cfcf964791fbfbb55cd1375720ffe98bfe1"
+    },
+    {
+      "path": "core/input.js",
+      "sha256": "f0e436d04f462978bd1e0e1d0d9fff5e1442d4882b7c9bf7b38267dfe3f6f980"
+    },
+    {
+      "path": "core/level.js",
+      "sha256": "9738cd9ac9c55dd8176f0157ba91524b53548305c06536293fc5272d25d996f0"
+    },
+    {
+      "path": "core/types.js",
+      "sha256": "639e6acf03b0de8f5a8e0fceff32e1273ae33b2ec5d04a4eb31c3092e7b24612"
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "71050c8f0ccdbb4890bf8f55a751c22a1617a9681aadd2e826b4658aa038540a"
+    },
+    {
+      "path": "index.html",
+      "sha256": "11fde5e2a1f6217568d1bbc2464b1476a96f131e8e8a19fddc176b1dbc87ee28"
+    },
+    {
+      "path": "LICENSE-CODE.txt",
+      "sha256": "b42772928e2cc0a7e7ef60fcc094ae06711e63f6cc4759cec2894f26e594794e"
+    },
+    {
+      "path": "LICENSING.txt",
+      "sha256": "6b9e0b530e697c0033f40465ae52220f121b0e887490405c84533dc347b6677e"
+    },
+    {
+      "path": "render/canvas.js",
+      "sha256": "d86cb0cb8d7b8d418e51b1ecbc5d489b2b6f25dac34727f76efc56718f92357f"
+    },
+    {
+      "path": "render/sprites.js",
+      "sha256": "5000f1d08ee74dc8f94a3ad596300b825d1aa0b12c6d1949acd4075330d5c470"
+    },
+    {
+      "path": "styles.css",
+      "sha256": "9b07b9505256849bf8fe3e624c2cd286687928c298c9b04fecbba3e0a71f8c1f"
+    },
+    {
+      "path": "theme.css",
+      "sha256": "3482825aa8732d17497d9b2f42a830a4d0a778ff06e112de44fbe4924ad1728a"
+    }
+  ],
+  "calendarSha256": "77946e1f55c977f669d653822aead4c2cb1db99292dba8b0ada4028c5813c103"
+}

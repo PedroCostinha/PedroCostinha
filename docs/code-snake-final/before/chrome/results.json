@@ -1,0 +1,319 @@
+{
+  "ref": "bed2270f4e63152e3e636da41af78caa64a1a2b5",
+  "url": "https://github.com/PedroCostinha/PedroCostinha/tree/bed2270f4e63152e3e636da41af78caa64a1a2b5",
+  "engine": "chrome",
+  "version": "155.0.8059.85",
+  "testedAt": "2026-10-27T13:54:49.237Z",
+  "views": [
+    {
+      "width": 320,
+      "dimensions": {
+        "width": 254,
+        "scrollWidth": 254,
+        "pageWidth": 320,
+        "viewport": 320
+      },
+      "images": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest.svg",
+          "width": 60.046875,
+          "height": 32.515625,
+          "x": 47,
+          "right": 107.046875,
+          "natural": [
+            1200,
+            650
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake-mobile.svg",
+          "width": 138.953125,
+          "height": 170.78125,
+          "x": 134.046875,
+          "right": 273,
+          "natural": [
+            480,
+            590
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest.svg",
+          "width": 254,
+          "height": 110.0625,
+          "x": 33,
+          "right": 287,
+          "natural": [
+            1200,
+            520
+          ],
+          "hiddenByDisclosure": false
+        }
+      ],
+      "motion": [
+        "barrel",
+        "snake"
+      ],
+      "still": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest-static.svg",
+          "exact": false,
+          "changedChannels": 203,
+          "maxDelta": 7
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake-static-mobile.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "dimensions": {
+        "width": 324,
+        "scrollWidth": 324,
+        "pageWidth": 390,
+        "viewport": 390
+      },
+      "images": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest.svg",
+          "width": 97.921875,
+          "height": 53.03125,
+          "x": 47,
+          "right": 144.921875,
+          "natural": [
+            1200,
+            650
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake-mobile.svg",
+          "width": 171.078125,
+          "height": 210.28125,
+          "x": 171.921875,
+          "right": 343,
+          "natural": [
+            480,
+            590
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest.svg",
+          "width": 324,
+          "height": 140.390625,
+          "x": 33,
+          "right": 357,
+          "natural": [
+            1200,
+            520
+          ],
+          "hiddenByDisclosure": false
+        }
+      ],
+      "motion": [
+        "barrel",
+        "snake"
+      ],
+      "still": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake-static-mobile.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "dimensions": {
+        "width": 406,
+        "scrollWidth": 406,
+        "pageWidth": 768,
+        "viewport": 768
+      },
+      "images": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest.svg",
+          "width": 142.28125,
+          "height": 77.0625,
+          "x": 63,
+          "right": 205.28125,
+          "natural": [
+            1200,
+            650
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake.svg",
+          "width": 208.71875,
+          "height": 123.671875,
+          "x": 232.28125,
+          "right": 441,
+          "natural": [
+            1080,
+            640
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest.svg",
+          "width": 406,
+          "height": 175.921875,
+          "x": 49,
+          "right": 455,
+          "natural": [
+            1200,
+            520
+          ],
+          "hiddenByDisclosure": false
+        }
+      ],
+      "motion": [
+        "barrel",
+        "snake"
+      ],
+      "still": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "dimensions": {
+        "width": 838,
+        "scrollWidth": 838,
+        "pageWidth": 1440,
+        "viewport": 1440
+      },
+      "images": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest.svg",
+          "width": 376.015625,
+          "height": 203.671875,
+          "x": 159,
+          "right": 535.015625,
+          "natural": [
+            1200,
+            650
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake.svg",
+          "width": 406.984375,
+          "height": 241.171875,
+          "x": 562.015625,
+          "right": 969,
+          "natural": [
+            1080,
+            640
+          ],
+          "hiddenByDisclosure": false
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest.svg",
+          "width": 838,
+          "height": 363.125,
+          "x": 145,
+          "right": 983,
+          "natural": [
+            1200,
+            520
+          ],
+          "hiddenByDisclosure": false
+        }
+      ],
+      "motion": [
+        "barrel",
+        "snake"
+      ],
+      "still": [
+        {
+          "name": "barrel",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/arcade/barrel-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "snake",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-snake/code-snake-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        },
+        {
+          "name": "quest",
+          "src": "https://github.com/PedroCostinha/PedroCostinha/raw/bed2270f4e63152e3e636da41af78caa64a1a2b5/assets/code-quest/code-quest-static.svg",
+          "exact": true,
+          "changedChannels": 0,
+          "maxDelta": 0
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "limitation": "Branch README; Safari, physical mobile and screen reader pending."
+}

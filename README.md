@@ -60,32 +60,40 @@ Cada quadrado representa um dia; as moedas são marcos visuais de atividade.<br>
 
 ## ARCADE COLLECTION
 
-Experimentos de engenharia e pixel art: as animações SVG usam contribuições reais;
-o jogo interativo tem pontuação própria da partida.
+Pixel art original em movimento: demos automáticas no perfil e jogos completos no navegador.
 
-[**🎮 JOGAR BARREL QUEST**](https://pedrocostinha.github.io/arcade-collection/)
+### Barrel Quest
 
-Versão jogável **1.1.0** · [Repositório do jogo](https://github.com/PedroCostinha/arcade-collection)
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/arcade/barrel-quest-static.svg">
+  <img src="assets/arcade/barrel-quest.svg" alt="Barrel Quest: Ember-7 sobe plataformas, salta barris e entrega contribuições reais. Demonstração automática." width="1200">
+</picture>
+
+[🎮 Jogar Barrel Quest · 1.1.0](https://pedrocostinha.github.io/arcade-collection/)
+
+### Code Snake · em desenvolvimento
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="assets/code-snake/code-snake-static-mobile.svg">
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/code-snake/code-snake-static.svg">
+  <source media="(max-width: 600px)" srcset="assets/code-snake/code-snake-mobile.svg">
+  <img src="assets/code-snake/code-snake.svg" alt="Code Snake: Nib percorre dias reais, coleta núcleos e cresce. Demo automática de 18 segundos, em desenvolvimento." width="1200">
+</picture>
+
+Protótipo demonstrativo · sem versão jogável publicada.
+
+As demos usam o mesmo snapshot de contribuições reais. O jogo interativo tem pontuação própria da partida.
+
+[Barrel estático](assets/arcade/barrel-quest-static.svg) · [Code Snake estático](assets/code-snake/code-snake-static-mobile.svg) · [Repositório dos jogos](https://github.com/PedroCostinha/arcade-collection)
 
 <details>
-<summary><strong>Barrel Quest</strong> · animação SVG demonstrativa</summary>
+<summary>Como as demos funcionam e próximos passos</summary>
 
-Ember-7 sobe cinco andares de uma estação industrial, desvia de barris e entrega
-pontos derivados das contribuições. Demonstração automática, sem controles.
+Ember-7 entrega somas dos trechos do calendário. Nib coleta uma amostra de dias ativos; o total anual continua separado e o calendário completo permanece visível. Nenhuma demo cria commits ou faz consultas em tempo real.
 
-<a href="assets/arcade/barrel-quest.svg">
-  <picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="assets/arcade/barrel-quest-static.svg">
-    <img src="assets/arcade/barrel-quest.svg" alt="Barrel Quest: robô original sobe plataformas vermelhas e escadas, salta barris e soma contribuições reais. Demonstração sem controles." width="1200">
-  </picture>
-</a>
-
-[Prévia estática e acessível](assets/arcade/barrel-quest-static.svg) · [Arquitetura, auditoria e próximos jogos](docs/ARCADE_COLLECTION.md)
+[Arquitetura da coleção](docs/ARCADE_COLLECTION.md) · [Proposta Code Snake](docs/CODE_SNAKE_ARCHITECTURE.md)
 
 </details>
-
-Planejados: **Space Defense** e **Code Snake**, com arte original.
-**Pac-Man** está em avaliação de licença e autorização.
 
 ## Experiência e foco técnico
 
