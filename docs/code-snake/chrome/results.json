@@ -1,0 +1,14 @@
+{
+  "engine": "chrome",
+  "version": "155.0.8059.85",
+  "checks": [
+    "SVG animates inside img; desktop/mobile sources, reduced-motion static source and stable pixels; contained 390px preview",
+    "Loop reset hidden at 18s boundary; all annual dates retained; SVG internal reduced-motion disables moving layers"
+  ],
+  "loop": {
+    "end": 0,
+    "begin": 0.00138889,
+    "days": 366
+  },
+  "errors": []
+}
