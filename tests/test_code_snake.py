@@ -14,9 +14,58 @@ from code_snake.model import replay
 from code_snake.scene import render, validate_svg
 from code_snake.art import HEAD
 import generate_code_snake
+import generate_code_quest
+import generate_arcade
 from test_code_quest import fixture
 
 class CodeSnakeTests(unittest.TestCase):
+    def test_shared_pipeline_single_fetch_updates_only_nine_artifacts_and_is_idempotent(self):
+        # Exercise the daily sequence with test-only calendars and no real network.
+        allowed = {
+            'assets/code-quest/calendar.json', 'assets/code-quest/code-quest.svg',
+            'assets/code-quest/code-quest-static.svg', 'assets/arcade/barrel-quest.svg',
+            'assets/arcade/barrel-quest-static.svg',
+            *{f'assets/code-snake/code-snake{static}{mobile}.svg'
+              for static in ('', '-static') for mobile in ('', '-mobile')},
+        }
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            sentinel = root/'README.md'
+            sentinel.write_text('must survive unchanged')
+            def snapshot():
+                return {p.relative_to(root).as_posix(): (p.read_bytes(), p.stat().st_mtime_ns)
+                        for p in root.rglob('*') if p.is_file()}
+            with patch.object(generate_code_quest, 'ASSETS', root/'assets/code-quest'), \
+                 patch.object(generate_arcade, 'CALENDAR', root/'assets/code-quest/calendar.json'), \
+                 patch.object(generate_arcade, 'ASSETS', root/'assets/arcade'), \
+                 patch.object(generate_code_snake, 'ROOT', root), \
+                 patch.object(socket, 'socket', side_effect=AssertionError('Network forbidden')):
+                for payload in (fixture(level=4), fixture(level=0)):
+                    with patch.object(generate_code_quest, 'fetch_calendar', return_value=payload) as fetch:
+                        with patch.object(sys, 'argv', ['generator']):
+                            generate_code_quest.main()
+                            generate_arcade.main()
+                            generate_code_snake.main()
+                        fetch.assert_called_once()
+                    before = snapshot()
+                    self.assertEqual(set(before), allowed | {'README.md'})
+                    self.assertEqual(sentinel.read_text(), 'must survive unchanged')
+                    with patch.object(sys, 'argv', ['generator', '--check']):
+                        generate_code_quest.main()
+                        generate_arcade.main()
+                        generate_code_snake.main()
+                    with patch.object(generate_code_quest, 'fetch_calendar', return_value=payload), \
+                         patch.object(sys, 'argv', ['generator']):
+                        generate_code_quest.main()
+                        generate_arcade.main()
+                        generate_code_snake.main()
+                    self.assertEqual(before, snapshot(), 'Identical data preserves bytes and mtimes')
+                with patch.object(generate_code_quest, 'fetch_calendar', return_value={}), \
+                     patch.object(sys, 'argv', ['generator']):
+                    with self.assertRaises(ValueError):
+                        generate_code_quest.main()
+                self.assertEqual(before, snapshot(), 'Failed update preserves all prior artifacts')
+
     def calendars(self):
         return [validate_calendar(p) for p in (fixture(level=0),fixture(level=4),fixture(),json.loads((ROOT/'assets/code-quest/calendar.json').read_text()))]
 

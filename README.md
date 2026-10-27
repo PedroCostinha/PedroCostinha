@@ -62,10 +62,25 @@ Cada quadrado representa um dia; as moedas são marcos visuais de atividade.<br>
 
 Pixel art original em movimento: demos automáticas no perfil e jogos completos no navegador.
 
-| Barrel Quest | Code Snake · em desenvolvimento |
-| :---: | :---: |
-| <picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/arcade/barrel-quest-static.svg"><img src="assets/arcade/barrel-quest.svg" alt="Barrel Quest: Ember-7 sobe plataformas, salta barris e entrega contribuições reais. Demonstração automática." width="580"></picture> | <picture><source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="assets/code-snake/code-snake-static-mobile.svg"><source media="(prefers-reduced-motion: reduce)" srcset="assets/code-snake/code-snake-static.svg"><source media="(max-width: 600px)" srcset="assets/code-snake/code-snake-mobile.svg"><img src="assets/code-snake/code-snake.svg" alt="Code Snake: Nib percorre dias reais, coleta núcleos e cresce. Demo automática de 18 segundos, em desenvolvimento." width="580"></picture> |
-| [🎮 Jogar Barrel Quest · 1.1.0](https://pedrocostinha.github.io/arcade-collection/) | Protótipo demonstrativo · sem versão jogável publicada |
+### Barrel Quest
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/arcade/barrel-quest-static.svg">
+  <img src="assets/arcade/barrel-quest.svg" alt="Barrel Quest: Ember-7 sobe plataformas, salta barris e entrega contribuições reais. Demonstração automática." width="1200">
+</picture>
+
+[🎮 Jogar Barrel Quest · 1.1.0](https://pedrocostinha.github.io/arcade-collection/)
+
+### Code Snake · em desenvolvimento
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="assets/code-snake/code-snake-static-mobile.svg">
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/code-snake/code-snake-static.svg">
+  <source media="(max-width: 600px)" srcset="assets/code-snake/code-snake-mobile.svg">
+  <img src="assets/code-snake/code-snake.svg" alt="Code Snake: Nib percorre dias reais, coleta núcleos e cresce. Demo automática de 18 segundos, em desenvolvimento." width="1200">
+</picture>
+
+Protótipo demonstrativo · sem versão jogável publicada.
 
 As demos usam o mesmo snapshot de contribuições reais. O jogo interativo tem pontuação própria da partida.
 
