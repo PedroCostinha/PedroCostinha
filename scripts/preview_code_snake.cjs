@@ -53,8 +53,16 @@ async function main(){
   });assert(loop.end<.01&&loop.begin<.01);assert(loop.days>=364);
   await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.moving').first().evaluate(e=>getComputedStyle(e).display),'none');
   checks.push('Loop reset hidden at 18s boundary; all annual dates retained; SVG internal reduced-motion disables moving layers');
+  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto(base+'/assets/code-snake/code-snake-mobile.svg');
+  const mobileSpacing=await page.evaluate(()=>{
+   for(const a of document.getAnimations()){a.pause();a.currentTime=16000;}
+   const completion=document.querySelector('.complete text').getBoundingClientRect();
+   const calendar=[...document.querySelectorAll('text')].find(e=>e.textContent==='ANO COMPLETO / CONTRIBUIÇÕES REAIS').getBoundingClientRect();
+   return {gap:calendar.top-completion.bottom,viewport:innerWidth};
+  });assert(mobileSpacing.gap>=4,'Mobile completion and annual-calendar labels have a readable gap');
+  checks.push('390px completion and annual-calendar labels separated by at least four screen pixels');
   assert.equal(errors.length,0);
-  await fs.writeFile(path.join(output,'results.json'),JSON.stringify({engine,version:browser.version(),checks,loop,errors},null,2));console.log(JSON.stringify({engine,checks}));
+  await fs.writeFile(path.join(output,'results.json'),JSON.stringify({engine,version:browser.version(),checks,loop,mobileSpacing,errors},null,2));console.log(JSON.stringify({engine,checks}));
  }finally{await browser.close();server.closeAllConnections();await new Promise(ok=>server.close(ok));}
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

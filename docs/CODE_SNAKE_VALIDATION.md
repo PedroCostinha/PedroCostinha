@@ -26,3 +26,9 @@ O workflow atual não gera Code Snake: enquanto a integração não for aprovada
 Usar Python 3.12+ com biblioteca padrão e executar `python scripts/generate_code_snake.py`, `python scripts/generate_code_snake.py --check` e a suíte unittest. Neste Windows o alias python aponta à Store; foi usado o Python empacotado no runtime do Codex, sem instalar outro Python.
 
 QA opcional: Playwright disponível em NODE_PATH, `node scripts/preview_code_snake.cjs`. `ARCADE_BROWSER=firefox` seleciona Firefox. `node scripts/preview_code_snake.cjs --serve` abre servidor em localhost:4176; `/` mostra vitrine e `/demo` a demo responsiva. Não há código de navegador ou dependências de QA no SVG ou no gerador de produção.
+
+## Revisão visual adicional — 27/10/2026
+
+Na demo mobile, o fim do ciclo aproximava demais “RECORTE CONCLUÍDO” de “ANO COMPLETO”: as caixas de texto se sobrepunham em 1,69 px a 390 px no Chrome. O calendário anual foi deslocado 12 unidades para baixo, sem alterar dimensões, rota, tempos, dados ou arquivos de CODE QUEST/Barrel. Apenas os dois SVGs mobile mudaram. O QA opcional agora verifica um intervalo mínimo de quatro pixels entre essas linhas, no quadro de 16 segundos. Medições após a correção: 8,06 px no Chrome e 6,03 px no Firefox, em 15,001/16/17,999/18,001 segundos. Os 48 testes Python continuam aprovados.
+
+A vitrine de duas colunas é compacta, mas os textos internos dos SVGs ficam pequenos a 390 px; a demo aberta em largura completa é mais legível. A página do jogo mede aproximadamente 1412 px no desktop e 1214 px no celular; os botões iniciais ficam abaixo da primeira tela desktop de 844 px. Esses pontos ficam para decisão visual na revisão, sem redesign nesta correção. A home local cabe em uma tela de 844 px nas duas larguras. Evidências desta etapa foram registradas separadamente das capturas históricas acima. A renderização real da branch no GitHub é uma verificação posterior ao push e não atualiza o perfil da main.

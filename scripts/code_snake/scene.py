@@ -18,7 +18,7 @@ def render(calendar, *, static=False, mobile=False):
     width, height = (480, 590) if mobile else (1080, 640)
     cell = 26 if mobile else 41
     left, top = (32, 143) if mobile else (48, 130)
-    footer = 405 if mobile else 458
+    footer = 417 if mobile else 458
     def pos(i):
         x, y = demo.route[max(0, min(i, len(demo.route)-1))]
         return left+x*cell, top+y*cell
