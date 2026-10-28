@@ -71,16 +71,16 @@ Pixel art original em movimento: demos automáticas no perfil e jogos completos 
 
 [🎮 Jogar Barrel Quest · 1.1.0](https://pedrocostinha.github.io/arcade-collection/)
 
-### Code Snake · em desenvolvimento
+### Code Snake
 
 <picture>
   <source media="(prefers-reduced-motion: reduce) and (max-width: 600px)" srcset="assets/code-snake/code-snake-static-mobile.svg">
   <source media="(prefers-reduced-motion: reduce)" srcset="assets/code-snake/code-snake-static.svg">
   <source media="(max-width: 600px)" srcset="assets/code-snake/code-snake-mobile.svg">
-  <img src="assets/code-snake/code-snake.svg" alt="Code Snake: Nib percorre dias reais, coleta núcleos e cresce. Demo automática de 18 segundos, em desenvolvimento." width="1200">
+  <img src="assets/code-snake/code-snake.svg" alt="Code Snake: Nib percorre dias reais, coleta núcleos e cresce. Demo automática de 18 segundos." width="1200">
 </picture>
 
-Protótipo demonstrativo · sem versão jogável publicada.
+[🎮 JOGAR CODE SNAKE](https://pedrocostinha.github.io/arcade-collection/code-snake/)
 
 As demos usam o mesmo snapshot de contribuições reais. O jogo interativo tem pontuação própria da partida.
 
