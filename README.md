@@ -62,6 +62,10 @@ Cada quadrado representa um dia; as moedas são marcos visuais de atividade.<br>
 
 Pixel art original em movimento: demos automáticas no perfil e jogos completos no navegador.
 
+**[🎮 EXPLORAR ARCADE COLLECTION](https://pedrocostinha.github.io/arcade-collection/collection/)**
+
+A versão **1.3.0** reúne dois jogos originais: **Barrel Quest** e **Code Snake**.
+
 ### Barrel Quest
 
 <picture>
